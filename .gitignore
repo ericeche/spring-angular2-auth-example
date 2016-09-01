@@ -1,0 +1,12 @@
+# IntelliJ Generated
+.idea
+*.iml
+
+# Client Dependency Generated
+client/node_modules/
+client/typings/
+client/npm-debug.log
+
+# Typescript Compiler Generated
+client/app/**/*.js
+client/app/**/*.js.map
