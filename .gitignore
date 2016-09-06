@@ -12,5 +12,4 @@ client/app/**/*.js
 client/app/**/*.js.map
 
 # Gradle Generated
-client/.gradle/
 .gradle/
