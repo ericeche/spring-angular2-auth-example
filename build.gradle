@@ -2,6 +2,15 @@ plugins {
     id 'com.moowork.node' version '0.13' apply false
 }
 
+task clean(
+        group: 'Build',
+        dependsOn: ':client:npmClean',
+        description: 'Clean the files and directories generated') {}
+task build(
+        group: 'Build',
+        dependsOn: ':client:npmInstall',
+        description: 'Assembles this project') {}
+
 project(':client') {
 
     apply plugin: 'com.moowork.node'
