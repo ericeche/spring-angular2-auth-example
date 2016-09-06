@@ -1,3 +1,5 @@
+<p-growl [value]="msgs" sticky="sticky"></p-growl>
+
 <form (ngSubmit)="onSubmit()"#registerForm="ngForm">
     <div>
         <label for="email">Email: </label>
@@ -17,5 +19,5 @@
                required [(ngModel)]="model.password" #password="ngModel" name="password"
                pInputText>
     </div>
-    <button type="submit" pButton label="Register"></button>
+    <button pButton type="submit" label="Register"></button>
 </form>

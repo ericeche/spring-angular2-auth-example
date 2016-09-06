@@ -1,20 +1,29 @@
 import {NgModule} from "@angular/core";
+
 import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 import {AuthComponent} from "./auth.component";
-import {TabViewModule} from "primeng/components/tabview/tabview";
 import {LoginFormComponent} from "./login-form/login-form.component";
 import {RegisterFormComponent} from "./register-form/register-form.component";
-import {FormsModule} from "@angular/forms";
+
+import {TabViewModule} from "primeng/components/tabview/tabview";
 import {ButtonModule} from "primeng/components/button/button";
+
+import {AuthService} from "./services/auth.service";
+import {AuthGuard} from "./services/auth-guard.service";
+import {GrowlModule} from "primeng/components/growl/growl";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
+        // primeNg
         TabViewModule,
-        ButtonModule
+        ButtonModule,
+        GrowlModule
     ],
+    providers: [AuthService, AuthGuard],
     declarations: [AuthComponent, LoginFormComponent, RegisterFormComponent],
     exports: [AuthComponent]
 })
