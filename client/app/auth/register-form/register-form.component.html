@@ -1,22 +1,28 @@
-<p-growl [value]="msgs" sticky="sticky"></p-growl>
+<p-growl [value]="messages" sticky="sticky"></p-growl>
 
-<form (ngSubmit)="onSubmit()"#registerForm="ngForm">
+<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
     <div>
         <label for="email">Email: </label>
         <input id="email" type="email"
-               required [(ngModel)]="model.email"  #username="ngModel" name="email"
-               pInputText >
-    </div>
-    <div>
-        <label for="username">Username: </label>
-        <input id="username" type="text"
-               required [(ngModel)]="model.username"  #username="ngModel" name="username"
-               pInputText >
+               required [(ngModel)]="model.email" #firstname="ngModel" name="email"
+               pInputText>
     </div>
     <div>
         <label for="password">Password: </label>
         <input id="password" type="password"
                required [(ngModel)]="model.password" #password="ngModel" name="password"
+               pInputText>
+    </div>
+    <div>
+        <label for="firstname">First Name: </label>
+        <input id="firstname" type="text"
+               required [(ngModel)]="model.firstname" #firstname="ngModel" name="firstname"
+               pInputText>
+    </div>
+    <div>
+        <label for="lastname">Last Name: </label>
+        <input id="lastname" type="text"
+               required [(ngModel)]="model.lastname" #lastname="ngModel" name="lastname"
                pInputText>
     </div>
     <button pButton type="submit" label="Register"></button>

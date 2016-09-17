@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @PostConstruct
     private void populateSampleData() {
-        userRepository.save(new User("email@test.com", "pass", "username"));
+        userRepository.save(new User("email@test", "pass", "firstname", "lastname"));
     }
 
 

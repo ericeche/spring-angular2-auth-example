@@ -14,17 +14,20 @@ public class User {
     private String email;
     @NotNull
     private String password;
-    @NotNull
-    private String username;
+    private String firstname;
+    private String lastname;
+
 
     public User() {
     }
 
-    public User(String email, String password, String username) {
+    public User(String email, String password, String firstname, String lastname) {
         this.email = email;
         this.password = password;
-        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
+
 
     public long getId() {
         return id;
@@ -50,11 +53,29 @@ public class User {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                '}';
     }
 }

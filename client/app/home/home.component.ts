@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {AuthService} from "../auth/services/auth.service";
 import {Router} from "@angular/router";
+
 @Component({
     moduleId: module.id,
     selector: 'home',
@@ -8,15 +9,14 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent {
 
-    constructor(private authService: AuthService,
-                private router: Router) {}
+    constructor(private router: Router,
+                private authService: AuthService) {}
 
     logOut(): void {
-        this.authService.logOut().subscribe(() => {
-            if(this.authService.isLoggedIn === false) {
+        this.authService.logOut().subscribe(isLoggedIn => {
+            if( isLoggedIn === false) {
                 this.router.navigate(['/auth']);
             }
         })
     }
-
 }

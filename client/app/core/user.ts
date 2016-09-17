@@ -1,5 +1,18 @@
 export class User {
-    constructor(public username: string,
-                public password: string,
-                public email: string) {}
+
+    id: string;
+    email: string;
+    password: string;
+    firstname: string;
+    lastname: string;
+
+    constructor() {
+    }
+
+    public static isNull(user: User): boolean {
+        return user.email === null &&
+            user.password === null &&
+            user.firstname === null &&
+            user.lastname === null;
+    }
 }

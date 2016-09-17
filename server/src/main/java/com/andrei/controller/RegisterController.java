@@ -1,6 +1,5 @@
 package com.andrei.controller;
 
-import com.andrei.exception.EmailInUseException;
 import com.andrei.model.User;
 import com.andrei.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +27,9 @@ public class RegisterController {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> register(@RequestBody User user) throws EmailInUseException {
+    public ResponseEntity<?> register(@RequestBody User user) {
         if (userService.findUserByEmail(user.getEmail()) != null) {
-            throw new EmailInUseException();
+            return new ResponseEntity<>(new User(), HttpStatus.OK);
         }
 
         User createdUser = userService.createUser(user);

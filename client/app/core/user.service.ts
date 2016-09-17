@@ -1,21 +1,23 @@
 import {Injectable} from "@angular/core";
 import {User} from "./user";
+import {Http} from "@angular/http";
+
+import {Observable} from "rxjs";
+import {API_URL} from "./core.module";
 
 @Injectable()
 export class UserService {
 
-    users: User[] = [new User('test', 'test','test')];
+    constructor(private http : Http) {}
 
-    contains(user: User): boolean {
-        return !!this.users.find(item =>
-            user.username === item.username && user.password === item.password);
+    getUsers(): Observable<User[]> {
+        return this.http.get(API_URL + '/users')
+            .map(response => response.json() as User[])
     }
 
-    addUser(user: User): boolean {
-        if(this.contains(user)) return false;
-        else {
-            this.users.push(user);
-            return true;
-        }
+    getUser(userId: string): Observable<User> {
+        return this.http.get(API_URL + '/user/' + userId)
+            .map(response => response.json())
     }
+
 }

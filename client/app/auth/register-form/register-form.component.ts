@@ -1,7 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {User} from "../../core/user";
-import {AuthService} from "../services/auth.service";
+
 import {Message} from "primeng/components/common/api";
+
+import {AuthService} from "../services/auth.service";
+import {User} from "../../core/user";
 
 @Component({
     moduleId: module.id,
@@ -11,21 +13,22 @@ import {Message} from "primeng/components/common/api";
 export class RegisterFormComponent implements OnInit {
 
     model: User;
-    msgs: Message[] = [];
+    messages: Message[] = [];
 
-    constructor(private authService: AuthService) {}
-
+    constructor(private authService: AuthService) {
+    }
 
     ngOnInit(): void {
-        this.model = new User('', '', '');
+        this.model = new User();
     }
 
     onSubmit(): void {
-        this.msgs = [];
-        if(this.authService.register(this.model)) {
-            this.msgs.push({severity:'info', summary:'Registered successfully!'});
-        } else {
-            this.msgs.push({severity:'error', summary:'Email already in use'});
-        }
+        this.messages = [];
+        this.authService
+            .register(this.model)
+            .subscribe(isRegistered => {
+                if (isRegistered) this.messages.push({severity: 'info', summary: 'Registered successfully!'});
+                else this.messages.push({severity: 'error', summary: 'Email already in use'});
+            });
     }
 }

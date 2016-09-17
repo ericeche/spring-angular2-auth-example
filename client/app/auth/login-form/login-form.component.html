@@ -1,11 +1,11 @@
-<p-growl [value]="msgs" sticky="sticky"></p-growl>
+<p-growl [value]="messages" sticky="sticky"></p-growl>
 
 <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <div>
-        <label for="username">Username: </label>
-        <input id="username" type="text"
-               required [(ngModel)]="model.username" #username="ngModel" name="username"
-               pInputText >
+        <label for="email">Email: </label>
+        <input id="email" type="email"
+               required [(ngModel)]="model.email" #firstname="ngModel" name="email"
+               pInputText>
     </div>
     <div>
         <label for="password">Password: </label>

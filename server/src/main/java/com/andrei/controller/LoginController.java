@@ -7,12 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.naming.AuthenticationException;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api")
@@ -30,17 +25,13 @@ public class LoginController {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> login(@RequestBody User user) throws AuthenticationException {
+    public ResponseEntity<?> login(@RequestBody User user) {
         if (StringUtils.isEmpty(user.getEmail()) || StringUtils.isEmpty(user.getPassword())) {
-            throw new AuthenticationException("Email and password must pe provided");
+            return new ResponseEntity<>(new User(), HttpStatus.OK);
         }
-
-        if (userService.findUserByEmailAndPassword(user.getEmail(), user.getPassword()) == null) {
-            throw new AuthenticationException("Invalid email or password");
+        if (userService.findUserByEmailAndPassword(user.getEmail(), user.getPassword()) == null){
+            return new ResponseEntity<>(new User(), HttpStatus.OK);
         }
-
         return new ResponseEntity<>(userService.findUserByEmail(user.getEmail()), HttpStatus.OK);
     }
-
-
 }
