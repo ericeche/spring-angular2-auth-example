@@ -18,7 +18,7 @@ This repo shows an authentication application using Spring Boot and Angular 2.
 ## Run this project ##
 1 . Clone project on your machine
 ```
-git clone https://gitlab.com/mihaesandrei/spring-angular2-auth-example.git
+git clone https://github.com/mihaesandrei/spring-angular2-auth-example.git
 ```
 2 . Change directory
 ```
@@ -39,4 +39,4 @@ cd client && npm start
 
 ## Getting help ##
 
-If you're having trouble getting this project running, feel free to [open an issue](https://gitlab.com/mihaesandrei/spring-angular2-auth-example/issues/new) or [email me](mailto:mihaes.andrei@gmail.com)!
+If you're having trouble getting this project running, feel free to [open an issue](https://github.com/mihaesandrei/spring-angular2-auth-example/issues/new) or [email me](mailto:mihaes.andrei@gmail.com)!
