@@ -2,16 +2,6 @@
 
 A simple application built in Spring Boot and Angular 2
 
-## Installation
-
-Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
-
-```sh
-npm install spring-angular2-auth-example --save
-```
-
-
-
 ## Dependencies
 
 - [@angular/common](https://github.com/angular/angular): Angular - commonly needed directives and services
