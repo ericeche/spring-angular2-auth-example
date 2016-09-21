@@ -4,9 +4,14 @@ plugins {
 
 apply plugin: 'com.moowork.node'
 
+project.ext {
+    node_version='6.6.0'
+    npm_version='3.10.3'
+}
+
 node {
-    version = node_version
-    npmVersion = npm_version
+    version = project.node_version
+    npmVersion = project.npm_version
     download = true
     workDir = file("${project.projectDir}/node")
     nodeModulesDir = file("${project.projectDir}/")

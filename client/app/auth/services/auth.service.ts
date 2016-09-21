@@ -1,9 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 
+import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/throw';
 
 import {User} from "../../core/user";
 import {API_URL} from "../../core/core.module";
