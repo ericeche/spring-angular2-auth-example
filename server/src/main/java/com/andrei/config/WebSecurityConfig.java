@@ -50,8 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().addFilterBefore(new WebSecurityCorsFilter(), ChannelProcessingFilter.class)
-                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
-                .csrf().csrfTokenRepository(csrfTokenRepository());
+              //  .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
+                .csrf().disable();
 
 
 /*

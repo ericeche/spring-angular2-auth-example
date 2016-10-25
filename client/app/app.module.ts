@@ -9,6 +9,8 @@ import {routing} from "./app.routing";
 import {AppComponent} from "./app.component";
 import {XSRFStrategy, CookieXSRFStrategy} from "@angular/http";
 
+document.cookie = "XSRF-TOKEN=Dont-Tase-Me-Bro";
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -27,6 +29,4 @@ import {XSRFStrategy, CookieXSRFStrategy} from "@angular/http";
 
     ],
 })
-export class AppModule {}
-
-document.cookie = "XSRF-TOKEN=Dont-Tase-Me-Bro";
+export class AppModule {};
