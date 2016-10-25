@@ -14,7 +14,7 @@ import {ButtonModule} from "primeng/components/button/button";
 import {AuthService} from "./services/auth.service";
 import {AuthGuard} from "./services/auth-guard.service";
 import {GrowlModule} from "primeng/components/growl/growl";
-import {HttpModule} from "@angular/http";
+import {HttpModule, XSRFStrategy, CookieXSRFStrategy} from "@angular/http";
 
 @NgModule({
     imports: [
@@ -25,7 +25,10 @@ import {HttpModule} from "@angular/http";
         ButtonModule,
         GrowlModule
     ],
-    providers: [AuthService, AuthGuard],
+    providers: [AuthService, AuthGuard,
+        [
+            { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('myCookieName', 'My-Header-Name')},
+        ] ],
     declarations: [AuthComponent, LoginFormComponent, RegisterFormComponent],
     exports: [AuthComponent]
 })

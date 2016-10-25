@@ -19,7 +19,7 @@ public class LoginController {
     public LoginController(UserService userService) {
         this.userService = userService;
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(
             value = "/login",
             method = RequestMethod.POST,
